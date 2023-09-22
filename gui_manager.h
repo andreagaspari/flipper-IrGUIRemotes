@@ -27,7 +27,10 @@ typedef enum {
 } IrGuiRemotesScene;
 
 // List of Views
-typedef enum { IrGuiRemotesMainMenuView, IrGuiRemotesLedRemoteView } IrGuiRemotesView;
+typedef enum { 
+    IrGuiRemotesMainMenuView,
+    IrGuiRemotesLedRemoteView
+} IrGuiRemotesView;
 
 /**
  * GUIManager structure

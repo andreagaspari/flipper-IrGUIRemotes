@@ -16,8 +16,7 @@ void start_ir_transmission(InfraredMessage* ir_message, void* context) {
         // Set message
         infrared_worker_set_decoded_signal(app->ir_worker, ir_message);
         // Set callback
-        infrared_worker_tx_set_get_signal_callback(
-            app->ir_worker, infrared_worker_tx_get_signal_steady_callback, app);
+        infrared_worker_tx_set_get_signal_callback(app->ir_worker, infrared_worker_tx_get_signal_steady_callback, app);
         // Start transmitting
         infrared_worker_tx_start(app->ir_worker);
         app->ir_transmitting = true;

@@ -91,24 +91,17 @@ GUIManager* gui_manager_alloc(App* app) {
     view_dispatcher_enable_queue(gui_manager->view_dispatcher);
     view_dispatcher_set_event_callback_context(gui_manager->view_dispatcher, app);
     view_dispatcher_set_custom_event_callback(gui_manager->view_dispatcher, scene_custom_callback);
-    view_dispatcher_set_navigation_event_callback(
-        gui_manager->view_dispatcher, back_event_callback);
+    view_dispatcher_set_navigation_event_callback(gui_manager->view_dispatcher, back_event_callback);
 
     // Allocate Submenu and add it to the View Dispatcher
     gui_manager->submenu = submenu_alloc();
-    view_dispatcher_add_view(
-        gui_manager->view_dispatcher,
-        IrGuiRemotesMainMenuView,
-        submenu_get_view(gui_manager->submenu));
+    view_dispatcher_add_view(gui_manager->view_dispatcher, IrGuiRemotesMainMenuView, submenu_get_view(gui_manager->submenu));
 
     //  Allocate Led Remote View
     gui_manager->led_remote_view = led_remote_view_alloc(app);
 
     // Add Led Remote View to the View Dispatcher
-    view_dispatcher_add_view(
-        gui_manager->view_dispatcher,
-        IrGuiRemotesLedRemoteView,
-        gui_manager->led_remote_view->view);
+    view_dispatcher_add_view(gui_manager->view_dispatcher, IrGuiRemotesLedRemoteView, gui_manager->led_remote_view->view);
 
     return gui_manager;
 }

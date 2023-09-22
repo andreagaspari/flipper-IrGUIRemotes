@@ -11,10 +11,12 @@
 void led_sign_scene_on_enter(void* context) {
     App* app = context;
 
-    // Set Led Sign Remote on Model
+    // Get Model and set Led Sign Remote
     LedRemoteModel* remote_model = view_get_model(app->gui_manager->led_remote_view->view);
     remote_model->remote = &led_sign_remote;
     remote_model->selected_btn = 0;
+
+    // Commit Model
     view_commit_model(app->gui_manager->led_remote_view->view, false);
 
     // Switch to Led Remote View

@@ -15,13 +15,11 @@ void main_menu_scene_callback(void* context, uint32_t index) {
     switch(index) {
     case IrGuiRemotesMainMenuSceneLedStripe: // Led Stripe
         // Send custom event to scene manager
-        scene_manager_handle_custom_event(
-            app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedStripeEvent);
+        scene_manager_handle_custom_event(app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedStripeEvent);
         break;
     case IrGuiRemotesMainMenuSceneLedSign: // Led Sign
         // Send custom event to scene manager
-        scene_manager_handle_custom_event(
-            app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedSignEvent);
+        scene_manager_handle_custom_event(app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedSignEvent);
         break;
     }
 }
@@ -39,20 +37,18 @@ void main_menu_scene_on_enter(void* context) {
     // Reset Submenu
     submenu_reset(app->gui_manager->submenu);
     // Set Header
-    submenu_set_header(app->gui_manager->submenu, "LED Remotes");
+    submenu_set_header(app->gui_manager->submenu, "Telecomandi");
+    
     // Add Items
     submenu_add_item(
         app->gui_manager->submenu,
-        "LED Stripe",
-        IrGuiRemotesMainMenuSceneLedStripe,
-        main_menu_scene_callback,
-        app);
+        "Striscia LED", IrGuiRemotesMainMenuSceneLedStripe,
+        main_menu_scene_callback, app);
+        
     submenu_add_item(
         app->gui_manager->submenu,
-        "LED Sign",
-        IrGuiRemotesMainMenuSceneLedSign,
-        main_menu_scene_callback,
-        app);
+        "Insegna LED", IrGuiRemotesMainMenuSceneLedSign,
+        main_menu_scene_callback, app);
 
     // Switch to Submenu View
     view_dispatcher_switch_to_view(app->gui_manager->view_dispatcher, IrGuiRemotesMainMenuView);

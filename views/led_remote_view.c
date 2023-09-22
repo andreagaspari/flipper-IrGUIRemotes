@@ -26,11 +26,8 @@ static void led_remote_view_draw_callback(Canvas* canvas, void* model) {
         for(int j = 0; j < remote.cols; j++) {
             LedRemoteButton btn = remote.buttons[(i * remote.cols) + j];
             canvas_draw_icon(
-                canvas,
-                j * 16,
-                (i * 18) + 17,
-                (led_remote_model->selected_btn == (i * remote.cols) + j) ? btn.icon_hover :
-                                                                            btn.icon);
+                canvas, j * 16, (i * 18) + 17,
+                (led_remote_model->selected_btn == (i * remote.cols) + j) ? btn.icon_hover : btn.icon);
         }
     }
 }
@@ -69,10 +66,7 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
             int min_value = current_row * remote.cols;
 
             // Set selected button to the left button (or wrap around)
-            remote_model->selected_btn =
-                (remote_model->selected_btn - min_value + (-1 % remote.cols) + remote.cols) %
-                    remote.cols +
-                min_value;
+            remote_model->selected_btn = (remote_model->selected_btn - min_value + (-1 % remote.cols) + remote.cols) % remote.cols + min_value;
 
             // Model changed
             model_changed = true;
@@ -87,10 +81,7 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
             int min_value = current_row * remote.cols;
 
             // Set selected button to the right button (or wrap around)
-            remote_model->selected_btn =
-                (remote_model->selected_btn - min_value + (1 % remote.cols) + remote.cols) %
-                    remote.cols +
-                min_value;
+            remote_model->selected_btn = (remote_model->selected_btn - min_value + (1 % remote.cols) + remote.cols) % remote.cols + min_value;
 
             // Model changed
             model_changed = true;
@@ -101,10 +92,7 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
         if(input_event->key == InputKeyUp) { // Up Key
 
             // Set selected button to the button above (or wrap around)
-            remote_model->selected_btn =
-                (remote_model->selected_btn + (-remote.cols % (remote.cols * remote.rows)) +
-                 (remote.cols * remote.rows)) %
-                (remote.cols * remote.rows);
+            remote_model->selected_btn = (remote_model->selected_btn + (-remote.cols % (remote.cols * remote.rows)) + (remote.cols * remote.rows)) % (remote.cols * remote.rows);
 
             // Model changed
             model_changed = true;
@@ -115,10 +103,7 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
         if(input_event->key == InputKeyDown) { // Down Key
 
             // Set selected button to the button below (or wrap around)
-            remote_model->selected_btn =
-                (remote_model->selected_btn + (remote.cols % (remote.cols * remote.rows)) +
-                 (remote.cols * remote.rows)) %
-                (remote.cols * remote.rows);
+            remote_model->selected_btn = (remote_model->selected_btn + (remote.cols % (remote.cols * remote.rows)) + (remote.cols * remote.rows)) % (remote.cols * remote.rows);
 
             // Model changed
             model_changed = true;
