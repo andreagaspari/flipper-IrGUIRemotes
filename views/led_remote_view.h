@@ -9,14 +9,28 @@
 
 typedef struct App App;
 
-// Led Remote Button Data Structure
+/**
+ * Led Remote Button Data Structure
+ * 
+ * @param ir_message Infrared Message
+ * @param icon Icon
+ * @param icon_hover Icon Hover
+*/
 typedef struct {
     const InfraredMessage ir_message;
     const Icon* icon;
     const Icon* icon_hover;
 } LedRemoteButton;
 
-// Led Remote Data Structure
+/**
+ * Led Remote Data Structure
+ * 
+ * @param label Label
+ * @param rows Rows
+ * @param cols Columns
+ * @param buttons Buttons
+ * 
+*/
 typedef struct {
     const char* label;
     const int rows;
@@ -24,20 +38,42 @@ typedef struct {
     const LedRemoteButton* buttons;
 } LedRemote;
 
-// Model for the Led Remote View
+/**
+ * Led Remote Model
+ * 
+ * @param remote Remote
+ * @param selected_btn Selected Button
+*/
 typedef struct LedRemoteModel {
     const LedRemote* remote;
     uint32_t selected_btn;
 } LedRemoteModel;
 
-// View for the Led Remote
+/**
+ * Led Remote View
+ * 
+ * @param app App data
+ * @param view View
+*/
 typedef struct LedRemoteView {
     App* app;
     View* view;
 } LedRemoteView;
 
+/**
+ * Led Remote View Allocation
+ * 
+ * @param app App data
+ * 
+ * @return LedRemoteView* Led Remote View
+*/
 LedRemoteView* led_remote_view_alloc(App* app);
 
+/**
+ * Led Remote View Free
+ * 
+ * @param led_remote_view Led Remote View
+*/
 void led_remote_view_free(LedRemoteView* led_remote_view);
 
 #endif // LED_REMOTE_VIEW_H

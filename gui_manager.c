@@ -1,18 +1,20 @@
 #include "gui_manager.h"
 
-// List of Scene Handlers on Enter
+// OnEnter Scene Handlers
 void (*const scene_on_enter_handlers[])(void*) = {
     main_menu_scene_on_enter,
     led_stripe_scene_on_enter,
     led_sign_scene_on_enter,
 };
-// List of Scene Handlers on Event
+
+// OnEvent Scene Handlers
 bool (*const scene_on_event_handlers[])(void*, SceneManagerEvent) = {
     main_menu_scene_on_event,
     led_stripe_scene_on_event,
     led_sign_scene_on_event,
 };
-// List of Scene Handlers on Exit
+
+// OnExit Scene Handlers
 void (*const scene_on_exit_handlers[])(void*) = {
     main_menu_scene_on_exit,
     led_stripe_scene_on_exit,
@@ -27,11 +29,25 @@ static const SceneManagerHandlers scene_manager_handlers = {
     .scene_num = IrGuiRemotesSceneCount,
 };
 
+/**
+ * Scene Manager Allocation
+ * 
+ * @param app App data
+ * 
+ * @return SceneManager* Scene Manager
+*/
 SceneManager* ir_gui_remotes_scene_manager_alloc(App* app) {
     return scene_manager_alloc(&scene_manager_handlers, app);
 }
 
-// Custom Event Callback
+/**
+ * Custom Event Callback
+ * 
+ * @param context Context
+ * @param custom_event Custom Event
+ * 
+ * @return bool True if event was handled
+*/
 bool scene_custom_callback(void* context, uint32_t custom_event) {
     furi_assert(context);
     App* app = context;
@@ -40,7 +56,13 @@ bool scene_custom_callback(void* context, uint32_t custom_event) {
     return scene_manager_handle_custom_event(app->gui_manager->scene_manager, custom_event);
 }
 
-// Back Event Callback
+/**
+ * Back Event Callback
+ * 
+ * @param context Context
+ * 
+ * @return bool True if event was handled
+*/
 bool back_event_callback(void* context) {
     furi_assert(context);
     App* app = context;
@@ -49,6 +71,13 @@ bool back_event_callback(void* context) {
     return scene_manager_handle_back_event(app->gui_manager->scene_manager);
 }
 
+/**
+ * GUI Manager Allocation
+ * 
+ * @param app App data
+ * 
+ * @return GUIManager* GUI Manager
+*/
 GUIManager* gui_manager_alloc(App* app) {
     // Allocate GUI Manager
     GUIManager* gui_manager = malloc(sizeof(GUIManager));
@@ -84,6 +113,13 @@ GUIManager* gui_manager_alloc(App* app) {
     return gui_manager;
 }
 
+/**
+ * Run GUI Manager -> show first scene
+ * 
+ * @param gui_manager GUI Manager
+ * 
+ * @return void
+*/
 void gui_manager_run(GUIManager* gui_manager) {
     // Initialize GUI
     Gui* gui = furi_record_open(RECORD_GUI);
@@ -96,6 +132,13 @@ void gui_manager_run(GUIManager* gui_manager) {
     view_dispatcher_run(gui_manager->view_dispatcher);
 }
 
+/**
+ * GUI Manager Free
+ * 
+ * @param gui_manager GUI Manager
+ * 
+ * @return void
+*/
 void gui_manager_free(GUIManager* gui_manager) {
     // Debug GUI Manager Check
     furi_assert(gui_manager);
