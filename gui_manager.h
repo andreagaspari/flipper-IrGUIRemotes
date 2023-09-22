@@ -45,6 +45,7 @@ bool scene_custom_callback(void* context, uint32_t custom_event);
 bool back_event_callback(void* context);
 
 GUIManager* gui_manager_alloc(App* app);
+void gui_manager_run(GUIManager* gui_manager);
 void gui_manager_free(GUIManager* gui_manager);
 
 #endif // GUI_MANAGER_H

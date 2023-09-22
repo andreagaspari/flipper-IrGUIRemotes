@@ -84,6 +84,18 @@ GUIManager* gui_manager_alloc(App* app) {
     return gui_manager;
 }
 
+void gui_manager_run(GUIManager* gui_manager) {
+    // Initialize GUI
+    Gui* gui = furi_record_open(RECORD_GUI);
+
+    // Attach View Dispatcher to GUI
+    view_dispatcher_attach_to_gui(gui_manager->view_dispatcher, gui, ViewDispatcherTypeFullscreen);
+    // Switch to Main Menu Scene
+    scene_manager_next_scene(gui_manager->scene_manager, IrGuiRemotesMainMenuView);
+    // Run View Dispatcher
+    view_dispatcher_run(gui_manager->view_dispatcher);
+}
+
 void gui_manager_free(GUIManager* gui_manager) {
     // Debug GUI Manager Check
     furi_assert(gui_manager);

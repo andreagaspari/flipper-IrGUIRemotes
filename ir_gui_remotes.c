@@ -90,16 +90,9 @@ int32_t ir_gui_remotes_app(void* p) {
     UNUSED(p);
     // Allocate App
     App* app = app_alloc();
-    // Initialize GUI
-    Gui* gui = furi_record_open(RECORD_GUI);
 
-    // Attach View Dispatcher to GUI
-    view_dispatcher_attach_to_gui(
-        app->gui_manager->view_dispatcher, gui, ViewDispatcherTypeFullscreen);
-    // Switch to Main Menu Scene
-    scene_manager_next_scene(app->gui_manager->scene_manager, IrGuiRemotesMainMenuView);
-    // Run View Dispatcher
-    view_dispatcher_run(app->gui_manager->view_dispatcher);
+    // Run first Scene of the GUI
+    gui_manager_run(app->gui_manager);
 
     // Free App on exit
     app_free(app);
