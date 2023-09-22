@@ -16,12 +16,12 @@ void main_menu_scene_callback(void* context, uint32_t index) {
     case IrGuiRemotesMainMenuSceneLedStripe: // Led Stripe
         // Send custom event to scene manager
         scene_manager_handle_custom_event(
-            app->scene_manager, IrGuiRemotesMainMenuSceneLedStripeEvent);
+            app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedStripeEvent);
         break;
     case IrGuiRemotesMainMenuSceneLedSign: // Led Sign
         // Send custom event to scene manager
         scene_manager_handle_custom_event(
-            app->scene_manager, IrGuiRemotesMainMenuSceneLedSignEvent);
+            app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedSignEvent);
         break;
     }
 }
@@ -37,21 +37,25 @@ void main_menu_scene_on_enter(void* context) {
     App* app = context;
 
     // Reset Submenu
-    submenu_reset(app->submenu);
+    submenu_reset(app->gui_manager->submenu);
     // Set Header
-    submenu_set_header(app->submenu, "LED Remotes");
+    submenu_set_header(app->gui_manager->submenu, "LED Remotes");
     // Add Items
     submenu_add_item(
-        app->submenu,
+        app->gui_manager->submenu,
         "LED Stripe",
         IrGuiRemotesMainMenuSceneLedStripe,
         main_menu_scene_callback,
         app);
     submenu_add_item(
-        app->submenu, "LED Sign", IrGuiRemotesMainMenuSceneLedSign, main_menu_scene_callback, app);
+        app->gui_manager->submenu,
+        "LED Sign",
+        IrGuiRemotesMainMenuSceneLedSign,
+        main_menu_scene_callback,
+        app);
 
     // Switch to Submenu View
-    view_dispatcher_switch_to_view(app->view_dispatcher, IrGuiRemotesMainMenuView);
+    view_dispatcher_switch_to_view(app->gui_manager->view_dispatcher, IrGuiRemotesMainMenuView);
 }
 
 /**
@@ -71,12 +75,12 @@ bool main_menu_scene_on_event(void* context, SceneManagerEvent event) {
         switch(event.event) {
         case IrGuiRemotesMainMenuSceneLedStripeEvent: // Led Stripe
             // Switch to Led Stripe Scene
-            scene_manager_next_scene(app->scene_manager, IrGuiRemotesLedStripeScene);
+            scene_manager_next_scene(app->gui_manager->scene_manager, IrGuiRemotesLedStripeScene);
             consumed = true;
             break;
         case IrGuiRemotesMainMenuSceneLedSignEvent: // Led Sign
             // Switch to Led Sign Scene
-            scene_manager_next_scene(app->scene_manager, IrGuiRemotesLedSignScene);
+            scene_manager_next_scene(app->gui_manager->scene_manager, IrGuiRemotesLedSignScene);
             consumed = true;
             break;
         }
@@ -98,5 +102,5 @@ bool main_menu_scene_on_event(void* context, SceneManagerEvent event) {
 void main_menu_scene_on_exit(void* context) {
     App* app = context;
     // Reset Submenu
-    submenu_reset(app->submenu);
+    submenu_reset(app->gui_manager->submenu);
 }

@@ -12,13 +12,13 @@ void led_stripe_scene_on_enter(void* context) {
     App* app = context;
 
     // Set Led Stripe Remote on Model
-    LedRemoteModel* remote_model = view_get_model(app->led_remote_view->view);
+    LedRemoteModel* remote_model = view_get_model(app->gui_manager->led_remote_view->view);
     remote_model->remote = &led_stripe_remote;
     remote_model->selected_btn = 0;
-    view_commit_model(app->led_remote_view->view, false);
+    view_commit_model(app->gui_manager->led_remote_view->view, false);
 
     // Switch to Led Remote View
-    view_dispatcher_switch_to_view(app->view_dispatcher, IrGuiRemotesLedRemoteView);
+    view_dispatcher_switch_to_view(app->gui_manager->view_dispatcher, IrGuiRemotesLedRemoteView);
 }
 
 /**

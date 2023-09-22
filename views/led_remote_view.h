@@ -38,8 +38,6 @@ typedef struct LedRemoteView {
 
 LedRemoteView* led_remote_view_alloc(App* app);
 
-void led_remote_view_free(App* app);
-
-View* led_remote_view_get(App* app);
+void led_remote_view_free(LedRemoteView* led_remote_view);
 
 #endif // LED_REMOTE_VIEW_H

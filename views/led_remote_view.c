@@ -51,8 +51,9 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
     // Flag to indicate if model was changed
     bool model_changed = false;
 
-    // Get Remote Model and Remote
-    LedRemoteModel* remote_model = view_get_model(app->led_remote_view->view);
+    // Get Remote View, Model and Remote
+    LedRemoteView* led_remote_view = app->gui_manager->led_remote_view;
+    LedRemoteModel* remote_model = view_get_model(led_remote_view->view);
     LedRemote remote = *remote_model->remote;
 
     // Set up Notification
@@ -150,7 +151,7 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
     }
 
     // Commit Model if it's changed
-    if(model_changed) view_commit_model(app->led_remote_view->view, false);
+    if(model_changed) view_commit_model(led_remote_view->view, false);
 
     // Close Notification
     furi_record_close(RECORD_NOTIFICATION);
@@ -196,24 +197,10 @@ LedRemoteView* led_remote_view_alloc(App* app) {
  * 
  * @return void
 */
-void led_remote_view_free(App* app) {
-    // Get Led Remote View
-    LedRemoteView* led_remote_view = app->led_remote_view;
-
+void led_remote_view_free(LedRemoteView* led_remote_view) {
     // Free View
     view_free(led_remote_view->view);
 
     // Free Led Remote View
     free(led_remote_view);
-}
-
-/**
- * Get Led Remote View
- * 
- * @param app App context
- * 
- * @return View* Led Remote View
-*/
-View* led_remote_view_get(App* app) {
-    return app->led_remote_view->view;
 }
