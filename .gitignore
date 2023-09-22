@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#ufbt
+dist/*
+.vscode
+.clang-format
+.editorconfig
