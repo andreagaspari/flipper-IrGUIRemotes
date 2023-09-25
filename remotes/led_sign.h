@@ -56,7 +56,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_r5_15x16,
-          .icon_hover = &I_r5_hover_15x16
+          .icon_hover = &I_r5_hover_15x16,
+          .color = 0xFF0000
      }, {
           .label = "Green",
           .ir_message = {
@@ -66,7 +67,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_g5_15x16,
-          .icon_hover = &I_g5_hover_15x16
+          .icon_hover = &I_g5_hover_15x16,
+          .color = 0x00FF00
      }, {
           .label = "Blue",
           .ir_message = {
@@ -76,7 +78,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_b5_15x16,
-          .icon_hover = &I_b5_hover_15x16
+          .icon_hover = &I_b5_hover_15x16,
+          .color = 0x0000FF
      }, {
           .label = "White",
           .ir_message = {
@@ -86,12 +89,13 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_w_15x16,
-          .icon_hover = &I_w_hover_15x16
+          .icon_hover = &I_w_hover_15x16,
+          .color = 0xFFFFFF
      },
 
      // Third Row (R4, G4, B4, Flash)
      {
-          .label = "Orange",
+          .label = "Christine",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -99,9 +103,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_r4_15x16,
-          .icon_hover = &I_r4_hover_15x16
+          .icon_hover = &I_r4_hover_15x16,
+          .color = 0xE46C08
      }, {
-          .label = "Salad",
+          .label = "Conifer",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -109,9 +114,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_g4_15x16,
-          .icon_hover = &I_g4_hover_15x16
+          .icon_hover = &I_g4_hover_15x16,
+          .color = 0x93D14F
      }, {
-          .label = "Curious Blue",
+          .label = "Dodger Blue",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -119,7 +125,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_b4_15x16,
-          .icon_hover = &I_b4_hover_15x16
+          .icon_hover = &I_b4_hover_15x16,
+          .color = 0x3399FD
      }, {
           .label = "Flash",
           .ir_message = {
@@ -134,7 +141,7 @@ const LedRemoteButton led_sign_btns[] = {
 
      // Fouth Row (R3, G3, B3, Strobe)
      {
-          .label = "Meteor",
+          .label = "Sunset Orange",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -142,9 +149,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_r3_15x16,
-          .icon_hover = &I_r3_hover_15x16
+          .icon_hover = &I_r3_hover_15x16,
+          .color = 0xFD504F
      }, {
-          .label = "Malibu",
+          .label = "Persian Green",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -152,9 +160,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_g3_15x16,
-          .icon_hover = &I_g3_hover_15x16
+          .icon_hover = &I_g3_hover_15x16,
+          .color = 0x02989A
      }, {
-          .label = "Camelot",
+          .label = "Royal Purple",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -162,7 +171,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_b3_15x16,
-          .icon_hover = &I_b3_hover_15x16
+          .icon_hover = &I_b3_hover_15x16,
+          .color = 0x7030A1
      }, {
           .label = "Strobe",
           .ir_message = {
@@ -177,7 +187,7 @@ const LedRemoteButton led_sign_btns[] = {
 
      // Fifth Row (R2, G2, B2, Fade)
      { 
-          .label = "Dandelion",
+          .label = "Orange Peel",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -185,9 +195,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_r2_15x16,
-          .icon_hover = &I_r2_hover_15x16
+          .icon_hover = &I_r2_hover_15x16,
+          .color = 0xFD9900
      }, {
-          .label = "Cerulean",
+          .label = "Bahama Blue",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -195,9 +206,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_g2_15x16,
-          .icon_hover = &I_g2_hover_15x16
+          .icon_hover = &I_g2_hover_15x16,
+          .color = 0x016598
      }, {
-          .label = "Hibiscus",
+          .label = "Electric Violet",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -205,7 +217,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_b2_15x16,
-          .icon_hover = &I_b2_hover_15x16
+          .icon_hover = &I_b2_hover_15x16,
+          .color = 0x6601FF
      }, {
           .label = "Fade",
           .ir_message = {
@@ -228,9 +241,10 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_r1_15x16,
-          .icon_hover = &I_r1_hover_15x16
+          .icon_hover = &I_r1_hover_15x16,
+          .color = 0xFFFF00
      }, {
-          .label = "Deep Cerulean",
+          .label = "Midnight Blue",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xDF00,
@@ -238,7 +252,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           }, 
           .icon = &I_g1_15x16,
-          .icon_hover = &I_g1_hover_15x16
+          .icon_hover = &I_g1_hover_15x16,
+          .color = 0x003366
      }, {
           .label = "Mulberry",
           .ir_message = {
@@ -248,7 +263,8 @@ const LedRemoteButton led_sign_btns[] = {
                .repeat = false
           },
           .icon = &I_b1_15x16,
-          .icon_hover = &I_b1_hover_15x16
+          .icon_hover = &I_b1_hover_15x16,
+          .color = 0x9B00FF
      }, {
           .label = "Smooth",
           .ir_message = {

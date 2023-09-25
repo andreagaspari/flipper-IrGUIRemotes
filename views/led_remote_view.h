@@ -22,6 +22,7 @@ typedef struct {
     const InfraredMessage ir_message;
     const Icon* icon;
     const Icon* icon_hover;
+    const int color;
 } LedRemoteButton;
 
 /**
