@@ -37,17 +37,17 @@ void main_menu_scene_on_enter(void* context) {
     // Reset Submenu
     submenu_reset(app->gui_manager->submenu);
     // Set Header
-    submenu_set_header(app->gui_manager->submenu, "Telecomandi");
+    submenu_set_header(app->gui_manager->submenu, "Remotes");
     
     // Add Items
     submenu_add_item(
         app->gui_manager->submenu,
-        "Striscia LED", IrGuiRemotesMainMenuSceneLedStripe,
+        "LED Stripe", IrGuiRemotesMainMenuSceneLedStripe,
         main_menu_scene_callback, app);
         
     submenu_add_item(
         app->gui_manager->submenu,
-        "Insegna LED", IrGuiRemotesMainMenuSceneLedSign,
+        "LED Sign", IrGuiRemotesMainMenuSceneLedSign,
         main_menu_scene_callback, app);
 
     // Switch to Submenu View

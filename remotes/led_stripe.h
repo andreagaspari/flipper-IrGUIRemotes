@@ -5,6 +5,7 @@
 const LedRemoteButton led_stripe_btns[] = {
      // First Row (Speed up, Speed Down, On, Off)
      {
+          .label = "Speed Up",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -14,6 +15,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_speed_up_15x16,
           .icon_hover = &I_speed_up_hover_15x16
      }, {
+          .label = "Speed Down",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -23,6 +25,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_speed_down_15x16,
           .icon_hover = &I_speed_down_hover_15x16
      }, {
+          .label = "Off",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -32,6 +35,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_off_15x16,
           .icon_hover = &I_off_hover_15x16
      }, {
+          .label = "On",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -44,6 +48,7 @@ const LedRemoteButton led_stripe_btns[] = {
 
      // Second Row (R5, G5, B5, W)
      {
+          .label = "Red",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -53,6 +58,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_r5_15x16,
           .icon_hover = &I_r5_hover_15x16
      }, {
+          .label = "Green",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -62,6 +68,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_g5_15x16,
           .icon_hover = &I_g5_hover_15x16
      }, {
+          .label = "Blue",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -71,6 +78,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_b5_15x16,
           .icon_hover = &I_b5_hover_15x16
      }, {
+          .label = "White",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -83,6 +91,7 @@ const LedRemoteButton led_stripe_btns[] = {
 
      // Third Row (R4, G4, B4, Flash)
      {
+          .label = "Orange",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -92,6 +101,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_r4_15x16,
           .icon_hover = &I_r4_hover_15x16
      }, {
+          .label = "Salad",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -101,6 +111,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_g4_15x16,
           .icon_hover = &I_g4_hover_15x16
      }, {
+          .label = "Curious Blue",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -110,6 +121,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_b4_15x16,
           .icon_hover = &I_b4_hover_15x16
      }, {
+          .label = "Flash",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -122,6 +134,7 @@ const LedRemoteButton led_stripe_btns[] = {
 
      // Fouth Row (R3, G3, B3, Strobe)
      {
+          .label = "Meteor",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -131,6 +144,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_r3_15x16,
           .icon_hover = &I_r3_hover_15x16
      }, {
+          .label = "Malibu",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -140,6 +154,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_g3_15x16,
           .icon_hover = &I_g3_hover_15x16
      }, {
+          .label = "Camelot",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -149,6 +164,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_b3_15x16,
           .icon_hover = &I_b3_hover_15x16
      }, {
+          .label = "Strobe",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -161,6 +177,7 @@ const LedRemoteButton led_stripe_btns[] = {
 
      // Fifth Row (R2, G2, B2, Fade)
      { 
+          .label = "Dandelion",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -170,6 +187,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_r2_15x16,
           .icon_hover = &I_r2_hover_15x16
      }, {
+          .label = "Cerulean",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -179,6 +197,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_g2_15x16,
           .icon_hover = &I_g2_hover_15x16
      }, {
+          .label = "Hibiscus",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -188,6 +207,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_b2_15x16,
           .icon_hover = &I_b2_hover_15x16
      }, {
+          .label = "Fade",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -200,6 +220,7 @@ const LedRemoteButton led_stripe_btns[] = {
 
      // Sixth Row (R1, G1, B1, Smooth)
      {
+          .label = "Yellow",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -209,6 +230,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_r1_15x16,
           .icon_hover = &I_r1_hover_15x16
      }, {
+          .label = "Deep Cerulean",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -218,6 +240,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_g1_15x16,
           .icon_hover = &I_g1_hover_15x16
      }, {
+          .label = "Mulberry",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -227,6 +250,7 @@ const LedRemoteButton led_stripe_btns[] = {
           .icon = &I_b1_15x16,
           .icon_hover = &I_b1_hover_15x16
      }, {
+          .label = "Smooth",
           .ir_message = {
                .protocol = InfraredProtocolNECext,
                .address = 0xEF00,
@@ -239,7 +263,7 @@ const LedRemoteButton led_stripe_btns[] = {
 };
 
 const LedRemote led_stripe_remote = {
-     .label = "Striscia LED", 
+     .label = "Led Stripe", 
      .rows = 6, 
      .cols = 4, 
      .buttons = led_stripe_btns

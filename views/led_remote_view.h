@@ -12,11 +12,13 @@ typedef struct App App;
 /**
  * Led Remote Button Data Structure
  * 
+ * @param label Button Label
  * @param ir_message Infrared Message
  * @param icon Icon
  * @param icon_hover Icon Hover
 */
 typedef struct {
+    const char* label;
     const InfraredMessage ir_message;
     const Icon* icon;
     const Icon* icon_hover;

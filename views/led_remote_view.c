@@ -17,7 +17,7 @@ static void led_remote_view_draw_callback(Canvas* canvas, void* model) {
     LedRemote remote = *led_remote_model->remote;
 
     // Draw Header
-    canvas_set_font(canvas, FontSecondary);
+    canvas_set_font(canvas, FontPrimary);
     canvas_draw_str_aligned(canvas, 32, 5, AlignCenter, AlignCenter, remote.label);
     canvas_draw_line(canvas, 0, 12, 128, 12);
 
@@ -26,10 +26,14 @@ static void led_remote_view_draw_callback(Canvas* canvas, void* model) {
         for(int j = 0; j < remote.cols; j++) {
             LedRemoteButton btn = remote.buttons[(i * remote.cols) + j];
             canvas_draw_icon(
-                canvas, j * 16, (i * 18) + 17,
+                canvas, j * 16, (i * 17) + 15,
                 (led_remote_model->selected_btn == (i * remote.cols) + j) ? btn.icon_hover : btn.icon);
         }
     }
+    if (remote.buttons[led_remote_model->selected_btn].label != NULL) {
+        canvas_set_font(canvas, FontSecondary);
+        canvas_draw_str_aligned(canvas, 32, 123, AlignCenter, AlignCenter, remote.buttons[led_remote_model->selected_btn].label);
+    };
 }
 
 /**
