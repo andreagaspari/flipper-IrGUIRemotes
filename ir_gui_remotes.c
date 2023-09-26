@@ -93,7 +93,7 @@ void turn_off_led(void* context) {
     notification_message(app->notifications, &sequence_reset_green);
     notification_message(app->notifications, &sequence_reset_blue);
 
-    furi_thread_flags_wait(0, FuriFlagWaitAny, 300); // Delay, prevent removal from RAM before LED value set
+    furi_thread_flags_wait(0, FuriFlagWaitAny, 30); // Delay, prevent removal from RAM before LED value set
 }
 
 /**
