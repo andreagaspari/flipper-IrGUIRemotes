@@ -68,11 +68,7 @@ bool back_event_callback(void* context) {
     App* app = context;
 
     // Turn off Led
-    notification_message(app->notifications, &sequence_reset_red);
-    notification_message(app->notifications, &sequence_reset_green);
-    notification_message(app->notifications, &sequence_reset_blue);
-
-    furi_thread_flags_wait(0, FuriFlagWaitAny, 30);
+    turn_off_led(app);
 
     // Handle back event
     return scene_manager_handle_back_event(app->gui_manager->scene_manager);
