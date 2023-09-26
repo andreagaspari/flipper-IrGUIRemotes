@@ -66,7 +66,6 @@ void turn_on_led(void* context, int hexColor) {
     notification_led_message_3.data.led.value = hexColor & 0xFF;
 
     const NotificationSequence notification_sequence = {
-        &message_blink_start_10,
         &notification_led_message_1,
         &notification_led_message_2,
         &notification_led_message_3,
