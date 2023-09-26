@@ -5,7 +5,6 @@
 
 #include <gui/view.h>
 #include <infrared/worker/infrared_worker.h>
-#include <notification/notification_messages.h>
 
 typedef struct App App;
 

@@ -44,6 +44,59 @@ void stop_ir_transmission(void* context) {
 }
 
 /**
+ * Turn on Notification LED with Hex color code
+ * 
+ * @param context App context
+ * @param hexColor Hex color code
+ * 
+ * @return void
+*/
+void turn_on_led(void* context, int hexColor) {
+    App* app = context;
+
+    NotificationMessage notification_led_message_1;
+    notification_led_message_1.type = NotificationMessageTypeLedRed;
+    NotificationMessage notification_led_message_2;
+    notification_led_message_2.type = NotificationMessageTypeLedGreen;
+    NotificationMessage notification_led_message_3;
+    notification_led_message_3.type = NotificationMessageTypeLedBlue;
+
+    notification_led_message_1.data.led.value = (hexColor >> 16) & 0xFF;
+    notification_led_message_2.data.led.value = (hexColor >> 8) & 0xFF;
+    notification_led_message_3.data.led.value = hexColor & 0xFF;
+
+    const NotificationSequence notification_sequence = {
+        &message_blink_start_10,
+        &notification_led_message_1,
+        &notification_led_message_2,
+        &notification_led_message_3,
+        &message_do_not_reset,
+        NULL,
+    };
+    notification_message(app->notifications, &notification_sequence);
+
+    furi_thread_flags_wait(0, FuriFlagWaitAny, 10); // Delay, prevent removal from RAM before LED value set
+}
+
+/**
+ * Turn off Notification LED
+ * 
+ * @param context App context
+ * 
+ * @return void
+*/
+void turn_off_led(void* context) {
+    App* app = context;
+
+    // Reset Led Color
+    notification_message(app->notifications, &sequence_reset_red);
+    notification_message(app->notifications, &sequence_reset_green);
+    notification_message(app->notifications, &sequence_reset_blue);
+
+    furi_thread_flags_wait(0, FuriFlagWaitAny, 300); // Delay, prevent removal from RAM before LED value set
+}
+
+/**
  * App Data Allocation
  * 
  * @return App* App data
@@ -58,6 +111,9 @@ static App* app_alloc() {
 
     // Allocate GUI Manager
     app->gui_manager = gui_manager_alloc(app);
+
+    // Setup Notifcations
+    app->notifications = furi_record_open(RECORD_NOTIFICATION);
 
     return app;
 }
@@ -78,6 +134,9 @@ static void app_free(App* app) {
 
     // Free GUI Manager
     gui_manager_free(app->gui_manager);
+
+    // Close Notifications
+    furi_record_close(RECORD_NOTIFICATION);
 
     // Free App
     free(app);

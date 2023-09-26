@@ -5,6 +5,7 @@
 
 #include <furi.h>
 #include <infrared/worker/infrared_worker.h>
+#include <notification/notification_messages.h>
 
 #include "gui_manager.h"
 #include "ir_gui_remotes_icons.h"
@@ -27,7 +28,29 @@ struct App {
     // Infrared
     InfraredWorker* ir_worker;
     bool ir_transmitting;
+    
+    // Notifications
+    NotificationApp* notifications;
 };
+
+/**
+ * Turn on Notification LED with Hex color code
+ * 
+ * @param context App context
+ * @param hexColor Hex Color
+ * 
+ * @return void
+*/
+void turn_on_led(void* context, int hexColor);
+
+/**
+ * Turn off Notification LED
+ * 
+ * @param context App context
+ * 
+ * @return void
+*/
+void turn_off_led(void* context);
 
 /**
  * Start transmitting Infrared Message

@@ -57,9 +57,6 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
     LedRemoteModel* remote_model = view_get_model(led_remote_view->view);
     LedRemote remote = *remote_model->remote;
 
-    // Set up Notification
-    NotificationApp* notifications = furi_record_open(RECORD_NOTIFICATION);
-
     // Handle Inputs
     if(input_event->type == InputTypeShort) { // Short Press
 
@@ -114,6 +111,14 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
             // Consume input
             consumed = true;
         }
+
+        // If isset color in button, change led color
+        if(remote.buttons[remote_model->selected_btn].color != 0) {
+            int hexColor = remote.buttons[remote_model->selected_btn].color;
+            turn_on_led(app, hexColor);  
+        } else {
+            turn_off_led(app);
+        }
     }
 
     if(input_event->key == InputKeyOk) { // OK Key
@@ -121,8 +126,9 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
         if(input_event->type == InputTypePress) { // Press -> Start transmitting
             // Get Infrared Message
             InfraredMessage ir_message = remote.buttons[(remote_model->selected_btn)].ir_message;
-            // Send Notification (Blink Red Led)
-            notification_message(notifications, &sequence_blink_start_red);
+            
+            notification_message(app->notifications, &sequence_blink_start_red);
+               
             // Start transmitting
             start_ir_transmission(&ir_message, app);
 
@@ -130,9 +136,18 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
             consumed = true;
         } else if(input_event->type == InputTypeRelease) { // Release -> Stop transmitting
             // Send Notification (Stop Blinking Red Led)
-            notification_message(notifications, &sequence_blink_stop);
+            notification_message(app->notifications, &sequence_blink_stop);
+
             // Stop transmitting
             stop_ir_transmission(app);
+
+            // If isset color in button, change led color
+            if(remote.buttons[remote_model->selected_btn].color != 0) {
+                int hexColor = remote.buttons[remote_model->selected_btn].color;
+                turn_on_led(app, hexColor);  
+            } else {
+                turn_off_led(app);
+            }
 
             // Consume input
             consumed = true;
@@ -141,9 +156,6 @@ static bool led_remote_view_input_callback(InputEvent* input_event, void* contex
 
     // Commit Model if it's changed
     if(model_changed) view_commit_model(led_remote_view->view, false);
-
-    // Close Notification
-    furi_record_close(RECORD_NOTIFICATION);
 
     return consumed;
 }
