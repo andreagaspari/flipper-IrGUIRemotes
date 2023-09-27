@@ -21,6 +21,10 @@ void main_menu_scene_callback(void* context, uint32_t index) {
         // Send custom event to scene manager
         scene_manager_handle_custom_event(app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneLedSignEvent);
         break;
+    case IrGuiRemotesMainMenuSceneInfraredRemoteList: // Remote List
+        // Send custom event to scene manager
+        scene_manager_handle_custom_event(app->gui_manager->scene_manager, IrGuiRemotesMainMenuSceneInfraredRemoteListEvent);
+        break;
     }
 }
 
@@ -48,6 +52,11 @@ void main_menu_scene_on_enter(void* context) {
     submenu_add_item(
         app->gui_manager->submenu,
         "LED Sign", IrGuiRemotesMainMenuSceneLedSign,
+        main_menu_scene_callback, app);
+
+    submenu_add_item(
+        app->gui_manager->submenu,
+        "Saved", IrGuiRemotesMainMenuSceneInfraredRemoteList,
         main_menu_scene_callback, app);
 
     // Switch to Submenu View
@@ -79,8 +88,12 @@ bool main_menu_scene_on_event(void* context, SceneManagerEvent event) {
             scene_manager_next_scene(app->gui_manager->scene_manager, IrGuiRemotesLedSignScene);
             consumed = true;
             break;
+        case IrGuiRemotesMainMenuSceneInfraredRemoteListEvent: // Remote List
+            // Switch to Remote List Scene
+            scene_manager_next_scene(app->gui_manager->scene_manager, IrGuiRemotesInfraredRemoteListScene);
+            consumed = true;
+            break;
         }
-        break;
     default:
         break;
     }

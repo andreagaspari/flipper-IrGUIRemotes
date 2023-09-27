@@ -4,7 +4,12 @@
 #pragma once
 
 #include <furi.h>
+
+#include <dialogs/dialogs.h>
+#include <storage/storage.h>
+
 #include <infrared/worker/infrared_worker.h>
+
 #include <notification/notification_messages.h>
 
 #include "gui_manager.h"
@@ -25,7 +30,11 @@ struct App {
     // GUI Manager
     GUIManager* gui_manager;
 
-    // Infrared
+    DialogsApp* dialogs;
+    Storage* storage;
+    FuriString* file_path;
+
+    // Infrared Worker
     InfraredWorker* ir_worker;
     bool ir_transmitting;
     

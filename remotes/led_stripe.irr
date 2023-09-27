@@ -1,0 +1,281 @@
+{
+	label: "Led Stripe",
+	buttons: [
+		[
+			{
+				label: "Speed Up",
+				icon: "speed_up",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 00 FF 00 00				
+				}
+			},
+			{
+				label: "Speed Down",
+				icon: "speed_down",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 01 FE 00 00				
+				}
+			},
+			{
+				label: "Off",
+				icon: "off",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 02 FD 00 00				
+				}
+			},
+			{
+				label: "On",
+				icon: "on",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 03 FC 00 00				
+				}
+			},
+		],
+		[
+			{
+				label: "Red",
+				icon: "r5",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 04 FB 00 00				
+				}
+			},
+			{
+				label: "Green",
+				icon: "g5",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 05 FA 00 00				
+				}
+			},
+			{
+				label: "Blue",
+				icon: "b5",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 06 F9 00 00				
+				}
+			},
+			{
+				label: "White",
+				icon: "w",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 07 F8 00 00				
+				}
+			},
+		],
+		[
+			{
+				label: "Orange",
+				icon: "r4",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 08 F7 00 00			
+				}
+			},
+			{
+				label: "Salad",
+				icon: "g4",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 09 F6 00 00				
+				}
+			},
+			{
+				label: "Curious Blue",
+				icon: "b4",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 0A F5 00 00				
+				}
+			},
+			{
+				label: "Flash",
+				icon: "flash",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 0B F4 00 00				
+				}
+			},
+		],
+		[
+			{
+				label: "Meteor",
+				icon: "r3",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 0C F3 00 00			
+				}
+			},
+			{
+				label: "Malibu",
+				icon: "g3",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 0D F2 00 00				
+				}
+			},
+			{
+				label: "Camelot",
+				icon: "b3",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 0E F1 00 00				
+				}
+			},
+			{
+				label: "Strobe",
+				icon: "strobe",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 0F F0 00 00				
+				}
+			},
+		],
+		[
+			{
+				label: "Dandelion",
+				icon: "r2",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 10 EF 00 00			
+				}
+			},
+			{
+				label: "Cerulean",
+				icon: "g2",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 11 EE 00 00				
+				}
+			},
+			{
+				label: "Hibiscus",
+				icon: "b2",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 12 ED 00 00				
+				}
+			},
+			{
+				label: "Fade",
+				icon: "fade",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 13 EC 00 00				
+				}
+			},
+		],
+		[
+			{
+				label: "Yellow",
+				icon: "r1",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 14 EB 00 00			
+				}
+			},
+			{
+				label: "Deep Cerulean",
+				icon: "g1",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 16 E9 00 00				
+				}
+			},
+			{
+				label: "Mulberry",
+				icon: "b1",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 16 E9 00 00				
+				}
+			},
+			{
+				label: "Smooth",
+				icon: "smooth",
+				size: 0.25,
+				message: {
+					type: parsed,
+					protocol: "NECext",
+					addess: 00 EF 00 00,
+					command: 17 E8 00 00				
+				}
+			},
+		],
+	]
+}

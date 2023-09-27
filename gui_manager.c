@@ -5,6 +5,7 @@ void (*const scene_on_enter_handlers[])(void*) = {
     main_menu_scene_on_enter,
     led_stripe_scene_on_enter,
     led_sign_scene_on_enter,
+    infrared_remote_list_scene_on_enter,
 };
 
 // OnEvent Scene Handlers
@@ -12,6 +13,7 @@ bool (*const scene_on_event_handlers[])(void*, SceneManagerEvent) = {
     main_menu_scene_on_event,
     led_stripe_scene_on_event,
     led_sign_scene_on_event,
+    infrared_remote_list_scene_on_event,
 };
 
 // OnExit Scene Handlers
@@ -19,6 +21,7 @@ void (*const scene_on_exit_handlers[])(void*) = {
     main_menu_scene_on_exit,
     led_stripe_scene_on_exit,
     led_sign_scene_on_exit,
+    infrared_remote_list_scene_on_exit,
 };
 
 // Scene Manager Handlers
@@ -102,9 +105,13 @@ GUIManager* gui_manager_alloc(App* app) {
 
     //  Allocate Led Remote View
     gui_manager->led_remote_view = led_remote_view_alloc(app);
-
     // Add Led Remote View to the View Dispatcher
     view_dispatcher_add_view(gui_manager->view_dispatcher, IrGuiRemotesLedRemoteView, gui_manager->led_remote_view->view);
+
+    // Allocate Infrared Gui Remote View
+    gui_manager->infrared_gui_remote_view = infrared_gui_remote_view_alloc(app);
+    // Add Infrared Gui Remote View to the View Dispatcher
+    view_dispatcher_add_view(gui_manager->view_dispatcher, IrGuiRemotesInfraredGuiRemoteView, gui_manager->infrared_gui_remote_view->view);
 
     return gui_manager;
 }
@@ -150,6 +157,9 @@ void gui_manager_free(GUIManager* gui_manager) {
 
     // Free Led Remote View
     led_remote_view_free(gui_manager->led_remote_view);
+
+    // Free Infrared Gui Remote View
+    infrared_gui_remote_view_free(gui_manager->infrared_gui_remote_view);
 
     // Free GUI Manager
     free(gui_manager);

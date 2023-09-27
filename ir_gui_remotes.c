@@ -104,6 +104,13 @@ static App* app_alloc() {
     // Allocate App
     App* app = malloc(sizeof(App));
 
+    // Allocate Storage & Dialogs
+    app->storage = furi_record_open(RECORD_STORAGE);
+    app->dialogs = furi_record_open(RECORD_DIALOGS);
+
+    // Allocate File Path
+    app->file_path = furi_string_alloc(256);
+
     // Allocate Infrared Worker and transmit flag
     app->ir_worker = infrared_worker_alloc();
     app->ir_transmitting = false;
@@ -127,6 +134,13 @@ static App* app_alloc() {
 static void app_free(App* app) {
     // Debug App Check
     furi_assert(app);
+
+    // Close storage and dialogs
+    furi_record_close(RECORD_STORAGE);
+    furi_record_close(RECORD_DIALOGS);
+
+    // Free File Path
+    furi_string_free(app->file_path);
 
     // Free Infrared Worker
     infrared_worker_free(app->ir_worker);

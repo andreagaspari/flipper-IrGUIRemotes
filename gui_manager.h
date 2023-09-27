@@ -7,12 +7,15 @@
 #include <gui/view_dispatcher.h>
 #include <gui/scene_manager.h>
 #include <gui/modules/submenu.h>
+#include <gui/modules/dialog_ex.h>
 
 #include "views/led_remote_view.h"
+#include "views/infrared_gui_remote_view.h"
 
 #include "scenes/main_menu_scene.h"
 #include "scenes/led_stripe_scene.h"
 #include "scenes/led_sign_scene.h"
+#include "scenes/infrared_remote_list_scene.h"
 
 #include "ir_gui_remotes.h"
 
@@ -23,13 +26,15 @@ typedef enum {
     IrGuiRemotesMainMenuScene,
     IrGuiRemotesLedStripeScene,
     IrGuiRemotesLedSignScene,
+    IrGuiRemotesInfraredRemoteListScene,
     IrGuiRemotesSceneCount
 } IrGuiRemotesScene;
 
 // List of Views
 typedef enum { 
     IrGuiRemotesMainMenuView,
-    IrGuiRemotesLedRemoteView
+    IrGuiRemotesLedRemoteView,
+    IrGuiRemotesInfraredGuiRemoteView
 } IrGuiRemotesView;
 
 /**
@@ -39,6 +44,7 @@ typedef enum {
  * @param scene_manager Scene Manager
  * @param view_dispatcher View Dispatcher
  * @param led_remote_view Led Remote View
+ * @param infrared_gui_remote_view Infrared GUI Remote View
  * @param submenu Submenu
  * 
 */
@@ -49,7 +55,10 @@ typedef struct GUIManager {
     ViewDispatcher* view_dispatcher;
 
     LedRemoteView* led_remote_view;
+    InfraredGuiRemoteView* infrared_gui_remote_view;
     Submenu* submenu;
+
+    DialogEx* dialog_ex;
 } GUIManager;
 
 /**

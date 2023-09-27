@@ -11,12 +11,14 @@ typedef struct App App;
 typedef enum {
     IrGuiRemotesMainMenuSceneLedStripe,
     IrGuiRemotesMainMenuSceneLedSign,
+    IrGuiRemotesMainMenuSceneInfraredRemoteList,
 } IrGuiRemotesMainMenuSceneIndex;
 
 // Event for Main Menu Scenes
 typedef enum {
     IrGuiRemotesMainMenuSceneLedStripeEvent,
     IrGuiRemotesMainMenuSceneLedSignEvent,
+    IrGuiRemotesMainMenuSceneInfraredRemoteListEvent,
 } IrGuiRemotesMainMenuSceneEvent;
 
 /**
