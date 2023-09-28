@@ -16,6 +16,7 @@
 #include "scenes/led_stripe_scene.h"
 #include "scenes/led_sign_scene.h"
 #include "scenes/infrared_remote_list_scene.h"
+#include "scenes/infrared_remote_scene.h"
 
 #include "ir_gui_remotes.h"
 
@@ -27,6 +28,7 @@ typedef enum {
     IrGuiRemotesLedStripeScene,
     IrGuiRemotesLedSignScene,
     IrGuiRemotesInfraredRemoteListScene,
+    IrGuiRemotesInfraredRemoteScene,
     IrGuiRemotesSceneCount
 } IrGuiRemotesScene;
 

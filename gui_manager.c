@@ -6,6 +6,7 @@ void (*const scene_on_enter_handlers[])(void*) = {
     led_stripe_scene_on_enter,
     led_sign_scene_on_enter,
     infrared_remote_list_scene_on_enter,
+    infrared_remote_scene_on_enter    
 };
 
 // OnEvent Scene Handlers
@@ -14,6 +15,7 @@ bool (*const scene_on_event_handlers[])(void*, SceneManagerEvent) = {
     led_stripe_scene_on_event,
     led_sign_scene_on_event,
     infrared_remote_list_scene_on_event,
+    infrared_remote_scene_on_event
 };
 
 // OnExit Scene Handlers
@@ -22,6 +24,7 @@ void (*const scene_on_exit_handlers[])(void*) = {
     led_stripe_scene_on_exit,
     led_sign_scene_on_exit,
     infrared_remote_list_scene_on_exit,
+    infrared_remote_scene_on_exit
 };
 
 // Scene Manager Handlers
