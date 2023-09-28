@@ -41,7 +41,7 @@ void main_menu_scene_on_enter(void* context) {
     // Reset Submenu
     submenu_reset(app->gui_manager->submenu);
     // Set Header
-    submenu_set_header(app->gui_manager->submenu, "Remotes");
+    //submenu_set_header(app->gui_manager->submenu, "Remotes");
     
     // Add Items
     submenu_add_item(

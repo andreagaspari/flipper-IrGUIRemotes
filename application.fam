@@ -4,6 +4,7 @@ App(
     apptype=FlipperAppType.EXTERNAL,
     entry_point="ir_gui_remotes_app",
     requires=["gui"],
+    targets=["f7"],
     stack_size=2 * 1024,
     fap_icon="icon.png",
     fap_category="Examples",

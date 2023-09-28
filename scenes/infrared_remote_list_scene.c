@@ -12,9 +12,9 @@ void infrared_remote_list_scene_on_enter(void* context) {
     
     DialogsFileBrowserOptions browser_options;
     dialog_file_browser_set_basic_options(&browser_options, INFRARED_APP_EXTENSION, &I_remote_10x10);
+    browser_options.skip_assets = true;
     browser_options.base_path = INFRARED_APP_FOLDER;
 
-    
     bool success = dialog_file_browser_show(
         app->dialogs, app->file_path, app->file_path, &browser_options);
 
@@ -36,8 +36,8 @@ void infrared_remote_list_scene_on_enter(void* context) {
         bool success = false;
 
         do {
-          //  if(!flipper_format_buffered_file_open_existing(ff, furi_string_get_cstr(path))) break;
-            
+            // if(!flipper_format_buffered_file_open_existing(ff, furi_string_get_cstr(path))) break;
+
             path_extract_filename(remote_model->file_path, buf, true);
             remote->label = furi_string_get_cstr(buf);
     
