@@ -18,6 +18,40 @@
 typedef struct App App;
 typedef struct GUIManager GUIManager;
 
+typedef struct InfraredGuiRemoteButton InfraredGuiRemoteButton;
+typedef struct InfraredGuiRemote InfraredGuiRemote;
+
+/**
+ * Infrared Gui Remote Button Data Structure
+ * 
+ * @param label Button Label
+ * @param ir_message Infrared Message
+ * @param icon Icon
+ * @param icon_hover Icon Hover
+*/
+struct InfraredGuiRemoteButton {
+    const char* label;
+    const InfraredMessage ir_message;
+    const Icon* icon;
+    const Icon* icon_hover;
+    const int color;
+};
+
+/**
+ * Infrared Gui Remote Data Structure
+ * 
+ * @param label Label
+ * @param rows Rows
+ * @param cols Columns
+ * @param buttons Buttons
+ * 
+*/
+struct InfraredGuiRemote {
+    char* label;
+    InfraredGuiRemoteButton* buttons;
+};
+
+
 /**
  * App Structure Definition
  * 
@@ -37,6 +71,9 @@ struct App {
     // Infrared Worker
     InfraredWorker* ir_worker;
     bool ir_transmitting;
+
+    // Remote
+    InfraredGuiRemote* remote;
     
     // Notifications
     NotificationApp* notifications;

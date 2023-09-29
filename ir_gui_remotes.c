@@ -118,6 +118,9 @@ static App* app_alloc() {
     // Allocate GUI Manager
     app->gui_manager = gui_manager_alloc(app);
 
+    // Allocate Remote
+    app->remote = malloc(sizeof(InfraredGuiRemote));
+
     // Setup Notifcations
     app->notifications = furi_record_open(RECORD_NOTIFICATION);
 
@@ -147,6 +150,9 @@ static void app_free(App* app) {
 
     // Free GUI Manager
     gui_manager_free(app->gui_manager);
+
+    // Free remote
+    free(app->remote);
 
     // Close Notifications
     furi_record_close(RECORD_NOTIFICATION);

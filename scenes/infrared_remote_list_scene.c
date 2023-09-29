@@ -22,9 +22,10 @@ void infrared_remote_list_scene_on_enter(void* context) {
     if(success) {
         // Get Model and set Led Sign Remote
         InfraredGuiRemoteModel* remote_model = view_get_model(app->gui_manager->infrared_gui_remote_view->view);
-        remote_model->file_path = app->file_path;
+        InfraredGuiRemote* remote = app->remote;
 
-        InfraredGuiRemote* remote = malloc(sizeof(InfraredGuiRemote));
+        // Set File Path
+        remote_model->file_path = app->file_path;
 
         // TODO: Load remote
         //Storage* storage = furi_record_open(RECORD_STORAGE);
@@ -45,7 +46,7 @@ void infrared_remote_list_scene_on_enter(void* context) {
         } while(false);
         
 
-        remote_model->remote = remote;
+        remote_model->remote = app->remote;
         view_commit_model(app->gui_manager->infrared_gui_remote_view->view, false);
     }
 

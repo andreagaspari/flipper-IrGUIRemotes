@@ -4,39 +4,10 @@
 #pragma once
 
 #include <gui/view.h>
-#include <infrared/worker/infrared_worker.h>
+#include "../ir_gui_remotes.h"
 
 typedef struct App App;
-
-/**
- * Infrared Gui Remote Button Data Structure
- * 
- * @param label Button Label
- * @param ir_message Infrared Message
- * @param icon Icon
- * @param icon_hover Icon Hover
-*/
-typedef struct {
-    const char* label;
-    const InfraredMessage ir_message;
-    const Icon* icon;
-    const Icon* icon_hover;
-    const int color;
-} InfraredGuiRemoteButton;
-
-/**
- * Infrared Gui Remote Data Structure
- * 
- * @param label Label
- * @param rows Rows
- * @param cols Columns
- * @param buttons Buttons
- * 
-*/
-typedef struct {
-    char* label;
-    InfraredGuiRemoteButton* buttons;
-} InfraredGuiRemote;
+typedef struct InfraredGuiRemote InfraredGuiRemote;
 
 /**
  * Infrared Gui Remote Model
